@@ -258,14 +258,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     <tr>
       <td align="center"><b>Color</b></td>
       <td align="center" bgcolor="#000000">⬜</td>
-      <td align="center" bgcolor="#9be9a8">🍵</td>
-      <td align="center" bgcolor="#30a14e">🟩</td>
+      <td align="center" bgcolor="#033A16">🍵</td>
+      <td align="center" bgcolor="#56D364">🟩</td>
     </tr>
     <tr>
       <td align="center"><b>Code</b></td>
       <td align="center"><code>#000000</code></td>
-      <td align="center"><code>#9be9a8</code></td>
-      <td align="center"><code>#30a14e</code></td>
+      <td align="center"><code>#033A16</code></td>
+      <td align="center"><code>#56D364</code></td>
     </tr>
   </table>
 </div>
@@ -312,7 +312,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     <tr>
       <td bgcolor="#000000">19</td>
       <td bgcolor="#000000">20</td>
-      <td bgcolor="#9be9a8">21</td>
+      <td bgcolor="#56D364">21</td>
       <td bgcolor="#000000">22</td>
       <td bgcolor="#000000">23</td>
       <td bgcolor="#000000">24</td>
