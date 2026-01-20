@@ -1,0 +1,66 @@
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Computation and Scientific Computing
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.14.0
+tensorboard>=2.13.0
+
+# Image Processing
+Pillow>=9.5.0
+opencv-python>=4.7.0
+albumentations>=1.3.0
+
+# Data Handling
+pandas>=2.0.0
+h5py>=3.8.0
+
+# Progress Bars and Logging
+tqdm>=4.65.0
+wandb>=0.15.0  # Optional: for experiment tracking
+
+# Jupyter and Notebooks
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+notebook>=6.5.0
+
+# Code Quality and Testing
+pytest>=7.3.0
+pytest-cov>=4.1.0
+black>=23.3.0
+flake8>=6.0.0
+mypy>=1.3.0
+
+# Model Export and Optimization
+onnx>=1.14.0
+onnxruntime>=1.15.0
+
+# Utilities
+pyyaml>=6.0
+python-dotenv>=1.0.0
+einops>=0.6.1  # For tensor operations
+
+# Object Detection (for DETR)
+pycocotools>=2.0.6
+
+# Typing Extensions
+typing-extensions>=4.5.0
+
+# Optional: Hugging Face Transformers (for reference implementations)
+transformers>=4.30.0
+
+# Optional: Timm (PyTorch Image Models - for reference)
+timm>=0.9.0
+
+# Development Tools
+ipdb>=0.13.13
+setuptools>=67.0.0
+wheel>=0.40.0
