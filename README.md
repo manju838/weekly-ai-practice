@@ -244,11 +244,403 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - PyTorch team for the excellent framework
 - Open-source community for inspiration and learning resources
 
+## 📅 2026 AI Practice Tracker
+
+<!-- LEGEND -->
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Status</b></td>
+      <td align="center" width="50">No Work</td>
+      <td align="center" width="50">Light</td>
+      <td align="center" width="50">Satisfactory</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Color</b></td>
+      <td align="center" bgcolor="#000000">⬜</td>
+      <td align="center" bgcolor="#9be9a8">🍵</td>
+      <td align="center" bgcolor="#30a14e">🟩</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Code</b></td>
+      <td align="center"><code>#000000</code></td>
+      <td align="center"><code>#9be9a8</code></td>
+      <td align="center"><code>#30a14e</code></td>
+    </tr>
+  </table>
+</div>
+
+<br />
+
+<!-- JANUARY 2026 -->
+<details open>
+<summary><b>January 2026</b></summary>
+<br>
+<table align="center">
+  <thead>
+    <tr>
+      <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <!-- W1: Jan 1 is Thursday -->
+      <td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td>
+      <td bgcolor="#000000">2</td>
+      <td bgcolor="#000000">3</td>
+      <td bgcolor="#000000">4</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">5</td>
+      <td bgcolor="#000000">6</td>
+      <td bgcolor="#000000">7</td>
+      <td bgcolor="#000000">8</td>
+      <td bgcolor="#000000">9</td>
+      <td bgcolor="#000000">10</td>
+      <td bgcolor="#000000">11</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">12</td>
+      <td bgcolor="#000000">13</td>
+      <td bgcolor="#000000">14</td>
+      <td bgcolor="#000000">15</td>
+      <td bgcolor="#000000">16</td>
+      <td bgcolor="#000000">17</td>
+      <td bgcolor="#000000">18</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">19</td>
+      <td bgcolor="#000000">20</td>
+      <td bgcolor="#9be9a8">21</td>
+      <td bgcolor="#000000">22</td>
+      <td bgcolor="#000000">23</td>
+      <td bgcolor="#000000">24</td>
+      <td bgcolor="#000000">25</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">26</td>
+      <td bgcolor="#000000">27</td>
+      <td bgcolor="#000000">28</td>
+      <td bgcolor="#000000">29</td>
+      <td bgcolor="#000000">30</td>
+      <td bgcolor="#000000">31</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- FEBRUARY 2026 -->
+<details>
+<summary><b>February 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- MARCH 2026 -->
+<details>
+<summary><b>March 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">30</td><td bgcolor="#000000">31</td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- APRIL 2026 -->
+<details>
+<summary><b>April 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- MAY 2026 -->
+<details>
+<summary><b>May 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td bgcolor="#000000">31</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- JUNE 2026 -->
+<details>
+<summary><b>June 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- JULY 2026 -->
+<details>
+<summary><b>July 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td bgcolor="#000000">31</td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- AUGUST 2026 -->
+<details>
+<summary><b>August 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">31</td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- SEPTEMBER 2026 -->
+<details>
+<summary><b>September 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- OCTOBER 2026 -->
+<details>
+<summary><b>October 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td bgcolor="#000000">31</td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- NOVEMBER 2026 -->
+<details>
+<summary><b>November 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+      <td bgcolor="#000000">1</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td><td bgcolor="#000000">7</td><td bgcolor="#000000">8</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td><td bgcolor="#000000">14</td><td bgcolor="#000000">15</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td><td bgcolor="#000000">21</td><td bgcolor="#000000">22</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td><td bgcolor="#000000">28</td><td bgcolor="#000000">29</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+<!-- DECEMBER 2026 -->
+<details>
+<summary><b>December 2026</b></summary>
+<br>
+<table align="center">
+  <thead><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td bgcolor="#000000">1</td><td bgcolor="#000000">2</td><td bgcolor="#000000">3</td><td bgcolor="#000000">4</td><td bgcolor="#000000">5</td><td bgcolor="#000000">6</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">7</td><td bgcolor="#000000">8</td><td bgcolor="#000000">9</td><td bgcolor="#000000">10</td><td bgcolor="#000000">11</td><td bgcolor="#000000">12</td><td bgcolor="#000000">13</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">14</td><td bgcolor="#000000">15</td><td bgcolor="#000000">16</td><td bgcolor="#000000">17</td><td bgcolor="#000000">18</td><td bgcolor="#000000">19</td><td bgcolor="#000000">20</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">21</td><td bgcolor="#000000">22</td><td bgcolor="#000000">23</td><td bgcolor="#000000">24</td><td bgcolor="#000000">25</td><td bgcolor="#000000">26</td><td bgcolor="#000000">27</td>
+    </tr>
+    <tr>
+      <td bgcolor="#000000">28</td><td bgcolor="#000000">29</td><td bgcolor="#000000">30</td><td bgcolor="#000000">31</td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
 ## 📧 Contact
 
-**Your Name** - [@yourtwitter](https://twitter.com/yourtwitter)
+**Manjunadh Kandavalli** - [@yourtwitter](https://twitter.com/yourtwitter)
 
-Project Link: [https://github.com/yourusername/ai-architecture-implementations](https://github.com/yourusername/ai-architecture-implementations)
+Project Link: [https://github.com/manju838/weekly-ai-practice](https://github.com/manju838/weekly-ai-practice)
 
 ---
 
