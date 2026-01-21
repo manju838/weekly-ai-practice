@@ -272,7 +272,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <br />
 
-<!-- JANUARY 2026 -->
+#### <b>TRACKER</b>
 <details open>
 <summary><b>January 2026</b></summary>
 <br>
@@ -636,9 +636,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 </table>
 </details>
 
+
 ## 📧 Contact
 
-**Manjunadh Kandavalli** - [@yourtwitter](https://twitter.com/yourtwitter)
+**Manjunadh Kandavalli** - [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manjunadh-kandavalli-17466a183/)
 
 Project Link: [https://github.com/manju838/weekly-ai-practice](https://github.com/manju838/weekly-ai-practice)
 
