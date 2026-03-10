@@ -68,7 +68,7 @@ Highly specific normalization placements to keep massive transformer models from
     - Architecture: Weighted sum of BatchNorm, LayerNorm and InstanceNorm. 
     - Purpose: Makes architectures incredibly robust across different tasks and batch sizes.
     - Cons: Rarely used in production LLMs because computing three different norms simultaneously introduces a massive computational overhead.
-
+![SwitchableNorm](code/related_notes/SwitchableNorm.png)
 #### 1.6 RMSNorm:
     - Introduced in "Root Mean Square Layer Normalization" (Zhang & Sennrich, 2019)
     - "mean-centering" operation in LayerNorm (subtracting μ) is found useless in transformers, so only variance is scaled
