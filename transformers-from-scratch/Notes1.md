@@ -125,8 +125,86 @@ In case of GPT-2 model, embed_dim is 768 and num_heads is 12. So, head_dim is 76
 - The part that multiplies Q projection with K<sup>T</sup> and scale it down using the square root of the dimension of the key vectors is called **Self-Attention**.(Math formula is Scaled Dot-Product Attention, SDPA)
 - In transformer encoder part, each head computes this Self-Attention and while in decoder part, it computes this Self-Attention with a mask, thus it is called **Masked Self-Attention**.
 ![Masked-Self-Attention](images/Masked-Self-Attention.png)
+- After multiplying Q and K projections, followed by dividing by square root of dimension of key vectors, we apply a mask(adding an upper triangular matrix of -infinity) before computing the softmax.
+- If we dont apply the mask, the model will have access to future tokens while predicting the current token, thus it learns one-to-one mapping(just copying the next token as the current token, i.e identity fn.), not the exact language modeling.
+- Since the activation is softmax(e^x / sum(e^x)), using -infinity in the upper triangular matrix ensures that the softmax output for those positions is 0.(i.e the attention scores is 0 for future tokens)
 
 ![MHABlock](images/MHABlock.png)
+
+##### 4. Add & Norm
+-  "Add & Norm" layer consists of two distinct operations applied sequentially:
+    A) "Add" (Residual Connection):
+        - This is a skip connection that adds the original input of a sub-layer to its output.
+        i.e Output=x+Sublayer(x)
+
+        - **The rule of thumb is: Any complex mathematical transformation that the model applies to the data, which is then bypassed by a residual (skip) connection, is considered a "sub-layer."**
+        - In the context of vanilla transformer, MHSA and FFN are sublayers.
+
+    B) "Norm" (Layer Normalization):
+        - Layer Normalization normalizes the values across the features (hidden dimensions) for each token independently.
+        - **It stabilizes the training process by ensuring the inputs to the next layer have a consistent mean (0) and variance (1). This smooths the optimization landscape and prevents activations from exploding or collapsing.**
+        - Apart from normalising values, LayerNorm also has gamma, beta learnable parameters(scaling and shifting, [look here](code/related_notes/pytorch-useful-notes.md)). Without these parameters, you'd be forcing every layer's input into the same distribution, destroying expressive power.
+
+![LayerNorm Formula](code/related_notes/layernorm.png)
+
+    WHY NOT BATCH NORM?
+    - Seq2seq models cant have fixed batch size and adding padding or truncating the tokens for uniform size messesup the quality of the inputs to the next layer. 
+  
+  ###### Variants of Add&Norm
+    1) Post-LN (The Original Design):
+        - Original Design introduced in paper "Attention is All You Need" (Vaswani et al., 2017), used in early BERT models
+        - Architecture: LayerNorm(x + Sublayer(x))
+        - **Normalisation applied after the residual addition**
+        - The Problem: The gradients near the output layer are well-behaved, but as they flow backward through multiple Post-LN layers, they degrade. To prevent early training divergence, Post-LN requires a strict Learning Rate Warmup (starting with a near-zero learning rate and slowly increasing it). Without warmup, deep Post-LN models simply fail to train.
+
+    2) Pre-LN (The Modern Standardizer)
+        - Architecture: x + Sublayer(LayerNorm(x))
+        - **Normalisation applied before the residual addition**
+        - Benefit: Because the residual connection is completely free of any transformations, gradients can flow from the very top of the network to the bottom flawlessly.
+        - Trade-off: Xiong et al. noted that while Pre-LN is easier to train, Post-LN actually has a slightly higher theoretical capacity and better performance if you can get it to converge. Still, Pre-LN became the de-facto standard for almost all large language models (GPT-3, BERT variations, etc.).
+        - The main disadvantage of this is Representation Collapse Problem. This effect is a gradual degradation,barely noticable at ~12-24 layers(thus GPT-2/GPT-3 didn't suffer badly), but at 100+ layers,this is so severe that it motivated DeepNorm.
+  
+    3) RMSNorm (The Efficiency Upgrade)
+        - Current State of the Art, used in models like LLaMA (1, 2 & 3), Mistral, Chinchilla, and Gemma.
+        - Introduced in "Root Mean Square Layer Normalization" (Zhang & Sennrich, 2019)
+        - Architecture: Replaces standard LayerNorm with RMSNorm in the Pre-LN setup.
+        - How it works: The authors realized that the "mean-centering" operation in LayerNorm (subtracting μ) is computationally expensive and doesn't actually contribute much to the success of the Transformer. RMSNorm drops the mean-centering and only scales the variance
+        - Benefit: It reduces computational overhead by 7% to 64% while maintaining identical accuracy and stability.
+
+    4) DeepNorm (Fixing Post-LN for Extreme Depth)
+        - Introduced in "DeepNet: Scaling Transformers to 1,000 Layers" (Wang et al., Microsoft, 2022)
+        - Architecture: LayerNorm(α⋅x + Sublayer(x))
+        - How it works: Microsoft researchers wanted to reclaim the superior performance of Post-LN but fix its instability. They introduced DeepNorm, which scales the residual connection by a constant α (greater than 1) and scales down the initialization of the neural network weights.
+        - Benefit: This simple mathematical trick bounded the gradient updates safely, allowing them to train a 1,000-layer Transformer without divergence—something Pre-LN struggles with due to representation collapse at extreme depths.
+    
+    5) Getting Rid of Norm entirely? (ReZero / SkiP-Init)
+        - Used in papers like "ReZero is All You Need" (Bachlechner et al., 2020); "SkiP-Init" (Dehghani et al., 2020)
+        - Architecture: x + α⋅Sublayer(x)
+        - How it works: Instead of applying complex Layer Normalization, these papers introduced a single learnable scalar parameter (α) for each layer, initialized to exactly 0.
+        - The Benefit: At the start of training, the network acts as a literal identity function (outputting exactly what was input). As training progresses, the network slowly learns to incorporate the Attention and FFN layers by increasing α. This trains incredibly fast and requires no normalization layer at all, though it hasn't widely replaced RMSNorm in massive commercial LLMs due to mixed scaling results.
+---
+
+**Representation Collapse Problem**: 
+  
+    - In a transformer, think of the residual stream as a running "memory vector" that persists across all layers. At each layer, the sublayer (attention or FFN) computes a small update and adds it to this stream.
+    - At initialization, sublayer outputs are small (weights are initialized near zero). So the update at each layer is tiny relative to x_in. That's fine and even desirable early in training.
+    - The problem develops as depth increases. Trace what happens to the magnitude of the residual stream across layers:
+```
+            x_0  → initial embedding, magnitude ≈ 1
+            x_1  = x_0 + small_update  →  magnitude slightly > 1
+            x_2  = x_1 + small_update  →  magnitude slightly > x_1
+            ...
+            x_L  = enormous magnitude after L layers
+```
+- **The residual stream monotonically grows because you are only ever adding to it, never normalizing it.**
+         
+         - PreLN style LayerNorm, normalised only the sublayer part but x itself is raw and unnormalised. 
+ - **i.e at deep layers, the sublayer's contribution becomes vanishingly small relative to the residual. So, the depth becomes decorative(x_out = x_in+tiny_sublayer_part ≈ x_in)** 
+  
+  ![LayerNorm type Comparision](images/layernorm_performance.png)
+
+
+
 
 
 ## MHSA Shape Transformations
@@ -201,3 +279,6 @@ Sources:
 - https://poloclub.github.io/transformer-explainer/
 - https://www.projectpro.io/article/multi-head-attention-in-transformers/1166
 - https://www.vizuaranewsletter.com/p/why-do-we-need-masking-in-attention
+- https://towardsdatascience.com/how-to-estimate-the-number-of-parameters-in-transformer-models-ca0f57d8dff0/
+- https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
+- https://github.com/hkproj/pytorch-transformer/tree/main

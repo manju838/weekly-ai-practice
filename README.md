@@ -79,6 +79,8 @@ conda env export > environment.yml
 
 # Install in development mode
 pip install -e .
+
+# Install "Image Comments" extension by Maximilian Giesen to look at images/formulas when hovered inside python files. Source codes have images/formulas 
 ```
 
 ### Usage Example
