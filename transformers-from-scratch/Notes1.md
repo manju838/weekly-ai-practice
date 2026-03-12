@@ -156,11 +156,15 @@ In case of GPT-2 model, embed_dim is 768 and num_heads is 12. So, head_dim is 76
         - Architecture: LayerNorm(x + Sublayer(x))
         - **Normalisation applied after the residual addition**
         - The Problem: The gradients near the output layer are well-behaved, but as they flow backward through multiple Post-LN layers, they degrade. To prevent early training divergence, Post-LN requires a strict Learning Rate Warmup (starting with a near-zero learning rate and slowly increasing it). Without warmup, deep Post-LN models simply fail to train.
+        - This architecture is harder to train due to vanishing gradient problem but if trained correctly, has a higher theoritical capacity as we ensure that the outputs after each layer(coming directly out of LayerNorm) are of comparable magnitude, so problem of "Representation Collapse" never happens. i.e better Representation Quality.
+
+![alt text](images/VanishingGradient_PostLN.png.png)
 
     2) Pre-LN (The Modern Standardizer)
         - Architecture: x + Sublayer(LayerNorm(x))
-        - **Normalisation applied before the residual addition**
-        - Benefit: Because the residual connection is completely free of any transformations, gradients can flow from the very top of the network to the bottom flawlessly.
+        - **Normalisation applied before the residual addition**. Sublayer input is normalised before applying nonlinear transformation(sublayer) and this is added to residual connection.
+        - Benefit: Because the residual connection is completely free of any transformations, gradients can flow from the very top of the network to the bottom flawlessly. i.e we avoid Vanishing Gradient problem but we introduce Representation Collapse Problem. Both are issues for deep networks
+        - The training with PreLN is very stable from the first training step and so doesnt need learning warmup(or a very mild one), practical for deep models at scale.
         - Trade-off: Xiong et al. noted that while Pre-LN is easier to train, Post-LN actually has a slightly higher theoretical capacity and better performance if you can get it to converge. Still, Pre-LN became the de-facto standard for almost all large language models (GPT-3, BERT variations, etc.).
         - The main disadvantage of this is Representation Collapse Problem. This effect is a gradual degradation,barely noticable at ~12-24 layers(thus GPT-2/GPT-3 didn't suffer badly), but at 100+ layers,this is so severe that it motivated DeepNorm.
   
@@ -182,10 +186,25 @@ In case of GPT-2 model, embed_dim is 768 and num_heads is 12. So, head_dim is 76
         - Architecture: x + α⋅Sublayer(x)
         - How it works: Instead of applying complex Layer Normalization, these papers introduced a single learnable scalar parameter (α) for each layer, initialized to exactly 0.
         - The Benefit: At the start of training, the network acts as a literal identity function (outputting exactly what was input). As training progresses, the network slowly learns to incorporate the Attention and FFN layers by increasing α. This trains incredibly fast and requires no normalization layer at all, though it hasn't widely replaced RMSNorm in massive commercial LLMs due to mixed scaling results.
+
+    6) ResiDual:
+        - Introduced in "ResiDual: Transformer with Dual Residual Connections" (Xie et al., 2023)
+        - Seesaw Effect: Pre-Norm and Post-Norm each make distinct trade-offs between vanishing gradient and representation collapse(anologous to 2 ends of a seesaw), fixing one reintroduces another. The rootcause for this issue is fixed coupling of residual stream and sublayer output. ResiDual, SandwichNorm, DeepNorm,HyperConnections are some innovations to fix this issue.
+        - Instead of choosing between PreLN and PostLN, run both residual streams simultaneously and merge them
+        - Each token is represented by 2 streams(vectors) at each layer: POST Stream maintains a normalised, well behaved representation(preventing representation collapse) while PRE Stream provides a clean gradient highway(preventing vanishing gradient). Two streams interact and inform each other.
+        - Cons: Higher memory and compute due to 2 residual streams, implementation complexity and coupling between 2 streams needs careful tuning(hyperparameter sensitivity) 
+![PreLN Vs PostLN Vs ResiDual](images/PreLN_vs_PostLN_vs_ResiDual.png.png)
+
+    7) Sandwich Norm:
+    8) Hyper-Connections
+
+
+
+
 ---
 
 **Representation Collapse Problem**: 
-  
+    - Residual Stream: In a transformer, every token is represented by a vector that flows through all L layers.This vector is called Residual Stream.
     - In a transformer, think of the residual stream as a running "memory vector" that persists across all layers. At each layer, the sublayer (attention or FFN) computes a small update and adds it to this stream.
     - At initialization, sublayer outputs are small (weights are initialized near zero). So the update at each layer is tiny relative to x_in. That's fine and even desirable early in training.
     - The problem develops as depth increases. Trace what happens to the magnitude of the residual stream across layers:
@@ -200,7 +219,9 @@ In case of GPT-2 model, embed_dim is 768 and num_heads is 12. So, head_dim is 76
          
          - PreLN style LayerNorm, normalised only the sublayer part but x itself is raw and unnormalised. 
  - **i.e at deep layers, the sublayer's contribution becomes vanishingly small relative to the residual. So, the depth becomes decorative(x_out = x_in+tiny_sublayer_part ≈ x_in)** 
-  
+
+
+
   ![LayerNorm type Comparision](images/layernorm_performance.png)
 
 
@@ -282,3 +303,15 @@ Sources:
 - https://towardsdatascience.com/how-to-estimate-the-number-of-parameters-in-transformer-models-ca0f57d8dff0/
 - https://molgorithm.medium.com/what-is-add-norm-as-soon-as-possible-178fc0836381
 - https://github.com/hkproj/pytorch-transformer/tree/main
+- https://www.youtube.com/watch?v=RsuSOylfN2I
+
+
+- On Layer Normalization in the Transformer Architecture (PreLN paper)
+- Understanding the Difficulty of Training Transformers
+- ResiDual: Transformer with Dual Residual Connections
+- Hyper-Connections
+- Scaling Language Models: Methods, Analysis & Insights from Training Gopher
+- NormFormer: Improved Transformer Pretraining with Extra Normalization
+- Transformers without Tears: Improving the Normalization of Self-Attention
+- Exploring the Impact of Layer Normalization for Zero-shot Neural Machine Translation
+- Pre-RMSNorm and Pre-CRMSNorm Transformers: Equivalent and Efficient Pre-LN Transformers

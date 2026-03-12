@@ -98,6 +98,28 @@ Highly specific normalization placements to keep massive transformer models from
     - LRN looks at a single spatial pixel (e.g., the pixel at row 5, column 5). It takes the activation at that pixel and normalizes it by dividing it by the sum of the squared activations of the same pixel in the neighboring channels.
     - Obsolete, VGG paper(2014) proved it increases computation with no performance boost.
   
+#### 2.1 Weight Norm:
+    - Introduced by Salimans & Kingma (2016)
+    - Instead of normalizing the activations (the data flowing through the network), it normalizes the weights (the parameters of the network itself).
+    - Usage: Heavily used in early generative models and sequence models but mostly been superseded by Spectral Normalization.
+
+#### 2.2 SpectralNorm:
+
+#### 3.1 QK Norm:
+    - Introduced in "Query-Key Normalization for Transformers" (Henry et al., 2020)
+    - In Attention mechanism, "Attention Score" between two words (tokens) is calculated by taking the dot product of their Query (Q) vector and Key (K) vector.
+    - Problem: 
+      - In massively deep networks, as data flows through dozens of layers, the raw numbers inside the Q and K vectors tend to grow larger.(In original transformer model, attention scores are normalised by sqrt of vector dimension but this is not sufficient for deep networks). Applying softmax on a vector with small magnitude features gives reasonable output numbers, thus blending information together. This attention is "soft", whereas for vectors with huge magnitudes, the softmax dominates for a few features with others almost crushed to 0. This is "HardMax" problem. 
+      - Softmax([1.0, 2.0, 3.0]) = [0.09, 0.24, 0.67]; Softmax([10, 20, 30]) = [0.000000002, 0.000045, 0.99995]
+      - Loss of Context (Attention Collapse): Superpower of Attention is its ability to blend context(features) of whole sentence. HardMax phenomenon cant blend info and devolves into a blind mapping fn.
+      - Vanishing Gradient: When softmax outputs hard 1.0 or 0.0, the gradient during backpropagation drops to 0.
+    - Applies LayerNorm or RMSNorm to query and key matrices before dot product, thus eliminating vanishing gradient or attention collapse issues.
+
+#### 3.2 Sandwich Norm:
+    - Introduced in the CogView paper (Ding et al., 2021).
+
+#### 3.3 DeepNorm:
+
 
 
 
@@ -108,3 +130,4 @@ Highly specific normalization placements to keep massive transformer models from
 Resources:
 - https://theaisummer.com/normalization/
 - https://www.kapilsharma.dev/posts/triton-kernels-rms-norm/
+- https://rossjtaylor.com/blog/qk-norm-and-the-curious-case-of-logit-drift/
